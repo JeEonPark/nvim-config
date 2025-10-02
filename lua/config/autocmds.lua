@@ -18,7 +18,7 @@ local function set_transparent_background()
     "NormalFloat", "FloatBorder", "FloatTitle",
     -- UI chrome
     "SignColumn", "FoldColumn", "LineNr", "CursorLineNr", "ColorColumn",
-    "StatusLine", "StatusLineNC", "WinBar", "WinBarNC", "TabLine", "TabLineFill", "TabLineSel",
+    "WinBar", "WinBarNC", "TabLine", "TabLineFill", "TabLineSel",
     -- Menus & popups
     "Pmenu", "PmenuSel", "PmenuSbar", "PmenuThumb", "WildMenu",
     -- Buffer edges & nontext
@@ -36,6 +36,37 @@ local function set_transparent_background()
   for _, group in ipairs(highlights_to_clear) do
     vim.api.nvim_set_hl(0, group, { bg = "NONE" })
     pcall(vim.cmd, string.format("highlight %s ctermbg=NONE", group))
+  end
+
+  -- Check if current colorscheme is light mode
+  local is_light = vim.g.colors_name and vim.g.colors_name:match("light")
+
+  if is_light then
+    -- Light mode colors
+    vim.api.nvim_set_hl(0, "LineNr", { fg = "#a0a0a0", bg = "NONE" })
+    vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#000000", bg = "NONE" })
+    vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#d0d0d0", bg = "NONE" })
+    vim.api.nvim_set_hl(0, "NonText", { fg = "#d0d0d0", bg = "NONE" })
+    vim.api.nvim_set_hl(0, "Delimiter", { fg = "#000000" })
+    vim.api.nvim_set_hl(0, "MatchParen", { fg = "#000000", bg = "#fefc00", bold = true })
+    vim.api.nvim_set_hl(0, "Operator", { fg = "#000000" })
+    vim.api.nvim_set_hl(0, "Cursor", { fg = "#ffffff", bg = "#000000" })
+    vim.api.nvim_set_hl(0, "CursorLine", { bg = "#f0f0f0" })
+    -- StatusLine for light mode
+    vim.api.nvim_set_hl(0, "StatusLine", { fg = "#000000", bg = "#e0e0e0" })
+    vim.api.nvim_set_hl(0, "StatusLineNC", { fg = "#666666", bg = "#f0f0f0" })
+  else
+    -- Dark mode colors
+    vim.api.nvim_set_hl(0, "LineNr", { fg = "#5c6370", bg = "NONE" })
+    vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#ffffff", bg = "NONE" })
+    vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#5c6370", bg = "NONE" })
+    vim.api.nvim_set_hl(0, "NonText", { fg = "#5c6370", bg = "NONE" })
+    vim.api.nvim_set_hl(0, "Delimiter", { fg = "#ffffff" })
+    vim.api.nvim_set_hl(0, "MatchParen", { fg = "#000000", bg = "#fefc00", bold = true })
+    vim.api.nvim_set_hl(0, "Operator", { fg = "#ffffff" })
+    -- StatusLine for dark mode (transparent)
+    vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE" })
   end
 end
 
