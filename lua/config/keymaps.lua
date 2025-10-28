@@ -69,3 +69,4 @@ vim.keymap.set("n", "<leader>ce", function()
     print("⚠️ No diagnostic message on the current line.")
   end
 end, { desc = "Copy LSP diagnostic message to clipboard" })
+

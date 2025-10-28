@@ -93,4 +93,3 @@ vim.api.nvim_create_user_command("TransparentDebug", function()
   print(string.format("Normal bg=%s", norm.bg or "NONE"))
   print(string.format("NormalFloat bg=%s", float.bg or "NONE"))
 end, {})
-

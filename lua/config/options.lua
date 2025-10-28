@@ -6,8 +6,7 @@
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 
-vim.diagnostic.enable(false)
-
 vim.env.CLAUDE_CONFIG_DIR = vim.fn.expand("~/.claude")
 
 vim.g.autoformat = false
+
