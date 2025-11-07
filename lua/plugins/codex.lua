@@ -22,4 +22,32 @@ return {
   --   model = nil,
   --   autoinstall = true,
   -- },
+
+  {
+    "rhart92/codex.nvim",
+    keys = {
+      {
+        "<leader>ct",
+        function()
+          require("codex").toggle()
+        end,
+        desc = "Toggle Codex terminal",
+      },
+      {
+        "<leader>cs",
+        function()
+          require("codex").actions.send_selection()
+        end,
+        mode = "v",
+        desc = "Send selection to Codex",
+      },
+    },
+    opts = {
+      split = "vertical",
+      size = 0.3,
+      focus_after_send = true,
+      autostart = false,
+      log_level = "warn",
+    },
+  },
 }
