@@ -10,3 +10,5 @@ vim.env.CLAUDE_CONFIG_DIR = vim.fn.expand("~/.claude")
 
 vim.g.autoformat = false
 
+vim.opt.number = true
+vim.opt.relativenumber = false

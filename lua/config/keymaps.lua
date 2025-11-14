@@ -33,7 +33,8 @@ keymap.set("n", "sl", "<C-w>l")
 
 keymap.set("n", "dd", ":delete _<CR>", opts)
 vim.keymap.set("n", "D", '"_d', { noremap = true }) -- D 대신 복사 안 되는 d
-vim.keymap.set("v", "D", '"_d', { noremap = true }) -- 비주얼에서도
+vim.keymap.set("v", "d", '"_d', { noremap = true }) -- Visual mode에서 d는 복사 안 되는 삭제
+vim.keymap.set("v", "D", '"_d', { noremap = true }) -- Visual mode에서 D도 복사 안 되는 삭제
 
 -- option number 버퍼 라인 숫자로 이동
 keymap.set("n", "<A-1>", ":BufferLineGoToBuffer 1<CR>", opts)
