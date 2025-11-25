@@ -16,7 +16,10 @@ return {
           message:find("Parser failed") or
           message:find("RunAfterRuleFilter") or
           message:find("Expected value but found invalid token") or
-          message:find("Cannot access.*it is internal")
+          message:find("Cannot access.*it is internal") or
+          message:find("Unresolved reference: MutableStateFlow") or
+          message:find("Unresolved reference: kotlinx") or
+          message:find("Unresolved reference: Optional")
         )
       end, diagnostics)
 
