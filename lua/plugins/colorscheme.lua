@@ -44,6 +44,23 @@ return {
 					vim.api.nvim_set_hl(0, "DiffviewFilePanelFileName", { fg = "#1a1a1a" })
 					vim.api.nvim_set_hl(0, "DiffviewFilePanelPath", { fg = "#6b7a87" })
 					vim.api.nvim_set_hl(0, "DiffviewFilePanelCounter", { fg = "#0c5a8a" })
+
+					-- Make diagnostic underlines more subtle
+					vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { sp = "#e8a0a0", undercurl = true })
+					vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { sp = "#d4c090", undercurl = true })
+					vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { sp = "#90b8d4", undercurl = true })
+					vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { sp = "#b0b8c0", undercurl = true })
+				end,
+			})
+
+			-- Make diagnostic underlines more subtle for xcodedark
+			vim.api.nvim_create_autocmd("ColorScheme", {
+				pattern = "xcodedark",
+				callback = function()
+					vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { sp = "#b06060", undercurl = true })
+					vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { sp = "#b09060", undercurl = true })
+					vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { sp = "#6090b0", undercurl = true })
+					vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { sp = "#707880", undercurl = true })
 				end,
 			})
 		end,
