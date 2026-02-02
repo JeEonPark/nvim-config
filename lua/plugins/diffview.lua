@@ -1,5 +1,7 @@
 return {
-  "sindrets/diffview.nvim",
+  "KEY60228/alt-diffview.nvim",
+  branch = "fix/show-untracked-files",
+  name = "diffview.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
   keys = {
     { "<leader>\\d", "<cmd>DiffviewOpen develop<cr>", desc = "Diff with develop branch" },
