@@ -1,13 +1,14 @@
 return {
-  -- Disable automatic installation of kotlin-language-server
   {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        kotlin_language_server = {
-          mason = false,
+        -- pre-alpha kotlin_lsp 비활성화
+        kotlin_lsp = {
           enabled = false,
         },
+        -- 공식 kotlin_language_server 활성화
+        kotlin_language_server = {},
       },
     },
   },
