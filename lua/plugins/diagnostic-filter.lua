@@ -19,7 +19,8 @@ return {
           message:find("Cannot access.*it is internal") or
           message:find("Unresolved reference: MutableStateFlow") or
           message:find("Unresolved reference: kotlinx") or
-          message:find("Unresolved reference: Optional")
+          message:find("Unresolved reference: Optional") or
+          message:find("was compiled with an incompatible version of Kotlin")
         )
       end, diagnostics)
 
