@@ -26,10 +26,13 @@ return {
       async_switch_im = true,
     })
 
-    -- 👇 추가 기능: Neovim 포커스 복귀 시 영어 입력기로 전환
+    -- Neovim 포커스 복귀 시 영어 입력기로 전환 (Insert/Terminal 모드 제외)
     vim.api.nvim_create_autocmd("FocusGained", {
       callback = function()
-        vim.fn.jobstart({ "macism", "com.apple.keylayout.ABC" })
+        local mode = vim.fn.mode()
+        if mode ~= "i" and mode ~= "t" then
+          vim.fn.jobstart({ "macism", "com.apple.keylayout.ABC" })
+        end
       end,
     })
   end,

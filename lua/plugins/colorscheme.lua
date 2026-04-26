@@ -57,6 +57,12 @@ return {
 			vim.api.nvim_create_autocmd("ColorScheme", {
 				pattern = "xcodedark",
 				callback = function()
+					-- Fix diff highlights: remove fg so treesitter syntax highlighting is preserved
+					vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#243330" })
+					vim.api.nvim_set_hl(0, "DiffDelete", { bg = "#3b2d2b" })
+					vim.api.nvim_set_hl(0, "DiffChange", { bg = "#2a2a2a" })
+					vim.api.nvim_set_hl(0, "DiffText", { bg = "#382e27" })
+
 					vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { sp = "#b06060", undercurl = true })
 					vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { sp = "#b09060", undercurl = true })
 					vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { sp = "#6090b0", undercurl = true })

@@ -3,6 +3,9 @@ return {
   branch = "fix/show-untracked-files",
   name = "diffview.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
+  opts = {
+    enhanced_diff_hl = true,
+  },
   keys = {
     { "<leader>\\d", "<cmd>DiffviewOpen develop<cr>", desc = "Diff with develop branch" },
     { "<leader>\\c", "<cmd>DiffviewOpen HEAD<cr>", desc = "Diff with last commit" },
